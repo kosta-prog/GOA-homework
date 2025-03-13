@@ -19,5 +19,5 @@ print(kosta)
 number = "5"
 print("Result: " + number)
 
-number = True
+number = 5
 print("Result: " + str(number))
