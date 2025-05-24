@@ -1,0 +1,69 @@
+<head>
+    <nav>
+        <button style="background: linear-gradient(green, darkgreen); font-family: 'Arial', sans-serif; color: white; border: none; padding: 10px 20px; cursor: pointer; transition: transform 0.3s, background-color 0.3s;" 
+                onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='limegreen';" 
+                onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='';">
+            <a href="gw1home.html" style="text-decoration: none; color: white;">Home</a>
+        </button>
+        <button style="background: linear-gradient(green, darkgreen); font-family: 'Arial', sans-serif; color: white; border: none; padding: 10px 20px; cursor: pointer; transition: transform 0.3s, background-color 0.3s;" 
+                onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='limegreen';" 
+                onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='';">
+            <a href="gw1abt.html" style="text-decoration: none; color: white;">About</a>
+        </button>
+        <button style="background: linear-gradient(green, darkgreen); font-family: 'Arial', sans-serif; color: white; border: none; padding: 10px 20px; cursor: pointer; transition: transform 0.3s, background-color 0.3s;" 
+                onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='limegreen';" 
+                onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='';">
+            <a href="gw1contact.html" style="text-decoration: none; color: white;">Contacts</a>
+        </button>
+    </nav>
+</head>
+<body>
+    <body style="background-color: black; color: green; font-family: 'Courier New', monospace;">
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1;">
+            <canvas id="matrixCanvas" style="display: block;"></canvas>
+            <script>
+                const canvas = document.getElementById('matrixCanvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                const fontSize = 16;
+                const columns = canvas.width / fontSize;
+                const drops = Array(Math.floor(columns)).fill(1);
+
+                function drawMatrix() {
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = '#0F0';
+                    ctx.font = `${fontSize}px monospace`;
+
+                    drops.forEach((y, x) => {
+                        const text = letters[Math.floor(Math.random() * letters.length)];
+                        ctx.fillText(text, x * fontSize, y * fontSize);
+                        if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                            drops[x] = 0;
+                        }
+                        drops[x]++;
+                    });
+                }
+
+                setInterval(drawMatrix, 50);
+            </script>
+        </div>
+    </body>
+    <h1 style="font-family: 'Comic Sans MS', Comic Sans MS; color: white;">Homepage</h1><br>
+    <h2 style="font-family: 'Comic Sans MS', Comic Sans MS; color: white;">Welcome To GOA! In GOA, We Code, Make Websites and make games!</h2><br>
+    <img src="data:image/jpeg;base64,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"></img><br><br><br>
+    <h1 style="font-family: 'Comic Sans MS', Comic Sans MS; color: white;">How To Join</h1><br>
+    <h2 style="font-family: 'Comic Sans MS', Comic Sans MS; color: white;">To join us you may need to contact the numbers down here or you can send a message to the emails!</h2><br>
+    <p><b style="font-family: 'monospace', monospace; color: white;">+995 599 694 202</b></p>
+    <p><b style="font-family: 'monospace', monospace; color: white;">kostamirtskhu@gmail.com</b></p>
+    <h2 style="font-family: 'Comic Sans MS', Comic Sans MS; color: white;">Or Contact:</h2>
+    <p><b style="font-family: 'monospace', monospace; color: white;">+995 599 696 969</b></p>
+    <p><b style="font-family: 'monospace', monospace; color: white;">nikatelo696969@gmail.com</b></p><br><br>
+</body>
+<footer>
+    <p><b><small style="font-family: 'Comic Sans MS', Comic Sans MS; color: white;">Made By: Konstantine Mirtskhulava, Nika Telia, Konstantine Kenchadze, Giorgi Bekauri</small></b></p>
+    <p><b><small style="font-family: 'Comic Sans MS', Comic Sans MS; color: white;">All rights reserved</small></b></p>
+</footer>

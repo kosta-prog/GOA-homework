@@ -1,0 +1,69 @@
+<head>
+    <nav>
+        <button style="background: linear-gradient(green, darkgreen); font-family: 'Arial', sans-serif; color: white; border: none; padding: 10px 20px; cursor: pointer; transition: transform 0.3s, background-color 0.3s;" 
+                onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='limegreen';" 
+                onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='';">
+            <a href="gw1home.html" style="text-decoration: none; color: white;">Home</a>
+        </button>
+        <button style="background: linear-gradient(green, darkgreen); font-family: 'Arial', sans-serif; color: white; border: none; padding: 10px 20px; cursor: pointer; transition: transform 0.3s, background-color 0.3s;" 
+                onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='limegreen';" 
+                onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='';">
+            <a href="gw1abt.html" style="text-decoration: none; color: white;">About</a>
+        </button>
+        <button style="background: linear-gradient(green, darkgreen); font-family: 'Arial', sans-serif; color: white; border: none; padding: 10px 20px; cursor: pointer; transition: transform 0.3s, background-color 0.3s;" 
+                onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='limegreen';" 
+                onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='';">
+            <a href="gw1contact.html" style="text-decoration: none; color: white;">Contacts</a>
+        </button>
+    </nav>
+</head>
+<body>
+    <body style="background-color: black; color: green; font-family: 'Courier New', monospace;">
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1;">
+            <canvas id="matrixCanvas" style="display: block;"></canvas>
+            <script>
+                const canvas = document.getElementById('matrixCanvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                const fontSize = 16;
+                const columns = canvas.width / fontSize;
+                const drops = Array(Math.floor(columns)).fill(1);
+
+                function draw() {
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = '#0F0';
+                    ctx.font = `${fontSize}px monospace`;
+
+                    drops.forEach((y, x) => {
+                        const text = letters[Math.floor(Math.random() * letters.length)];
+                        ctx.fillText(text, x * fontSize, y * fontSize);
+
+                        if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                            drops[x] = 0;
+                        }
+                        drops[x]++;
+                    });
+                }
+
+                setInterval(draw, 50);
+            </script>
+        </div>
+    <h1 style="font-family: 'Comic Sans MS', Comic Sans MS; color: white;">Contacts</h1><br>
+    <h2 style="font-family: 'Comic Sans MS', Comic Sans MS; color: white;">these are all the contacts to join GOA or To call for help!</h2><br>
+    <p><b style="font-family: monospace; color: white;">+599 599 694 202</b></p>
+    <p><b style="font-family: monospace; color: white;">+599 555 696 969</b></p>
+    <p><b style="font-family: monospace; color: white;">+599 511 234 567</b></p>
+    <p><b style="font-family: monospace; color: white;">+599 593 585 472</b></p>
+    <p><b style="font-family: monospace; color: white;">kostamirtskhu@gmail.com</b></p>
+    <p><b style="font-family: monospace; color: white;">nikatelo696969@gmail.com</b></p>
+    <p><b style="font-family: monospace; color: white;">kostakenchadzefromtennis@gmail.com</b></p>
+    <p><b style="font-family: monospace; color: white;">giobeqauriisverisigma@gmail.com</b></p><br><br><br>
+</body>
+<footer>
+    <p><b><small style="color: white;">Made By: Konstantine Mirtskhulava, Nika Telia, Konstantine Kenchadze, Giorgi Bekauri</small></b></p>
+    <p><b><small style="color: white;"></small></b></p>
+</footer>
